@@ -1,7 +1,12 @@
 terraform {
+  # Terraform Actions require Terraform 1.14+ (the action/action_trigger
+  # language, and HCP Terraform's Invoke UI/API).
+  required_version = ">= 1.14.0"
+
   required_providers {
     aws = {
-      source  = "hashicorp/aws"
+      source = "hashicorp/aws"
+      # aws_ec2_stop_instance action requires provider >= 6.14.0
       version = "~> 6.18.0"
     }
   }
@@ -19,11 +24,11 @@ provider "aws" {
 }
 
 resource "aws_instance" "web" {
-  ami           = "ami-0de716d6197524dd9" # This is a publicly available Amazon Linux 2 AMI
-  instance_type = "t2.nano"
+  ami               = "ami-0de716d6197524dd9" # This is a publicly available Amazon Linux 2 AMI
+  instance_type     = "t2.nano"
   availability_zone = "us-east-1a"
   tags = {
-    Name = "HelloWorldServer"
+    Name        = "HelloWorldServer"
     cost-center = "dev"
   }
 }
@@ -41,7 +46,7 @@ resource "aws_ebs_volume" "web_data" {
   size              = 100
   type              = "gp3"
   tags = {
-    Name = "WebDataVolume"
+    Name        = "WebDataVolume"
     cost-center = "dev"
   }
 }
@@ -53,14 +58,14 @@ resource "aws_volume_attachment" "web_data_attach" {
 }
 
 resource "aws_db_instance" "app_db" {
- allocated_storage    = 20
-  engine               = "mysql"
-  engine_version       = "8.0"
-  instance_class       = "db.t3.micro"
-  db_name              = "appdb"
-  username             = "admin"
-  password             = "password123"
-  skip_final_snapshot  = true
+  allocated_storage   = 20
+  engine              = "mysql"
+  engine_version      = "8.0"
+  instance_class      = "db.t3.micro"
+  db_name             = "appdb"
+  username            = "admin"
+  password            = "password123"
+  skip_final_snapshot = true
   tags = {
     cost-center = "dev"
   }
