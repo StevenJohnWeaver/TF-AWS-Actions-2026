@@ -68,7 +68,7 @@ targets, not a shell script someone keeps on their laptop.
 ## Step 3 — Ship it
 
 **Screen:** HCP Terraform — a completed, successful **Apply** run for
-`Cloudability-Run-Task-2026`, showing the resources created.
+`TF-AWS-Actions-Demo`, showing the resources created.
 
 **Hotspot:** the run status badge ("Applied") and the resource list.
 
