@@ -11,10 +11,10 @@ terraform {
     }
   }
   cloud {
-    organization = "steve-weaver-demo-org"
+    organization = "team-tf-actions-test-org"
 
     workspaces {
-      name = "Cloudability-Run-Task-2026"
+      name = "TF-AWS-Actions-Demo"
     }
   }
 }
