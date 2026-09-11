@@ -1,7 +1,9 @@
 terraform {
   # Terraform Actions require Terraform 1.14+ (the action/action_trigger
-  # language, and HCP Terraform's Invoke UI/API).
-  required_version = ">= 1.14.0"
+  # language, and HCP Terraform's Invoke UI/API). Bumped to 1.16+ because
+  # Terraform policy (policies/allowed-instance-types.policy.hcl) requires
+  # it for policy evaluation.
+  required_version = ">= 1.16.0"
 
   required_providers {
     aws = {
