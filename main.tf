@@ -30,7 +30,7 @@ provider "aws" {
 
 resource "aws_instance" "web" {
   ami               = "ami-0de716d6197524dd9" # This is a publicly available Amazon Linux 2 AMI
-  instance_type     = "t2.nano"
+  instance_type     = "m5.xlarge"
   availability_zone = "us-east-1a"
   tags = {
     Name        = "HelloWorldServer"
