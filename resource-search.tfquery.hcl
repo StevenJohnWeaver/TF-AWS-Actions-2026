@@ -23,6 +23,11 @@
 
 list "aws_instance" "instances" {
   provider = aws
+
+  # Full attributes (not just identity) so tags/instance_type are
+  # available for policy evaluation -- see policies/*.policy.hcl and
+  # `terraform query -policies=policies`.
+  include_resource = true
 }
 
 list "aws_ebs_volume" "volumes" {
