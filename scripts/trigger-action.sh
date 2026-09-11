@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # trigger-action.sh — invokes the aws_ec2_stop_instance action against
-# Cloudability-Run-Task-2026 via the HCP Terraform Runs API.
+# TF-AWS-Actions-Demo via the HCP Terraform Runs API.
 #
 # Demo framing: this simulates a maintenance runbook (cron job, ticketing
 # system webhook, etc.) kicking off a "stop for maintenance" workflow
@@ -22,11 +22,11 @@
 set -euo pipefail
 
 : "${TFE_TOKEN:?Set TFE_TOKEN to an HCP Terraform API token}"
-: "${TFE_WORKSPACE_ID:?Set TFE_WORKSPACE_ID to the Cloudability-Run-Task-2026 workspace ID (ws-...)}"
+: "${TFE_WORKSPACE_ID:?Set TFE_WORKSPACE_ID to the TF-AWS-Actions-Demo workspace ID (ws-...)}"
 
 TFE_HOST="${TFE_HOST:-app.terraform.io}"
-TFE_ORG="${TFE_ORG:-steve-weaver-demo-org}"
-TFE_WORKSPACE_NAME="${TFE_WORKSPACE_NAME:-Cloudability-Run-Task-2026}"
+TFE_ORG="${TFE_ORG:-team-tf-actions-test-org}"
+TFE_WORKSPACE_NAME="${TFE_WORKSPACE_NAME:-TF-AWS-Actions-Demo}"
 
 curl -sS --fail-with-body \
   --header "Authorization: Bearer ${TFE_TOKEN}" \

@@ -6,8 +6,11 @@ terraform {
   required_providers {
     aws = {
       source = "hashicorp/aws"
-      # aws_ec2_stop_instance action requires provider >= 6.14.0
-      version = "~> 6.18.0"
+      # aws_ec2_stop_instance action requires provider >= 6.14.0. Bumped to
+      # 6.64.0 for List Resource coverage used by resource-search.tfquery.hcl
+      # (aws_db_instance and aws_key_pair List Resources landed latest, in
+      # 6.62.0 and 6.63.0 respectively).
+      version = "~> 6.64.0"
     }
   }
   cloud {
